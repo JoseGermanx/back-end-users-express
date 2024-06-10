@@ -11,7 +11,7 @@ npm init -y
 Para instalar las dependencias necesarias se debe ejecutar el siguiente comando:
 ```bash
 
-npm install express mongoose dotenv cors
+npm install express mongoose dotenv cors morgan
 ```
 
 - express: Es un marco de aplicación web para Node.js que proporciona un conjunto robusto de características para las aplicaciones web y móviles.
@@ -22,6 +22,7 @@ npm install express mongoose dotenv cors
 
 - cors: Es un paquete de Node.js para proporcionar un middleware de CORS (Cross-Origin Resource Sharing). Este middleware puede ser utilizado para permitir o restringir solicitudes cruzadas entre diferentes dominios.
 
+- morgan: Es un middleware de registro de solicitudes HTTP para Node.js. Se puede utilizar para registrar solicitudes HTTP en la consola y en archivos de registro.
 
 ### Crear el archivo .env
 Para crear el archivo .env se debe ejecutar el siguiente comando:

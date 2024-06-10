@@ -1,18 +1,15 @@
 
 const express = require("express");
+const { crearUsuario, login } = require("../controllers/user.controllers");
 
 const router = express.Router();
 
 
 // ruta para crear un usuario --- POST  
-router.post("/crear-usuario", (req, res) => {
-  res.send("Lógica para crear un nuevo usuario"); // función para gestionar la creación de un nuevo usuario -- controlador
-});
+router.post("/crear-usuario", crearUsuario );  // router escucha la petición post en la ruta /crear-usuario y ejecuta la función crearUsuario
 
 // ruta para login de un usuario --- POST
-router.post("/login", (req, res) => {
-    res.send("Lógica para login de un usuario");
-});
+router.post("/login", login);
 
 // ruta para actualizar un usuario --- PUT
 router.put("/actualizar-usuario/:id", (req, res) => {

@@ -1,6 +1,7 @@
 
 const express = require("express");
 const { crearUsuario, login } = require("../controllers/user.controllers");
+const getAllUsers = require("../controllers/user.getAll.controller");
 
 const router = express.Router();
 
@@ -22,8 +23,6 @@ router.delete("/eliminar-usuario/:id", (req, res) => {
 });
 
 // ruta para obtener lista de usuarios --- GET
-router.get("/listar-usuarios", (req, res) => {
-    res.send("Lógica para obtener lista de usuarios");
-});
+router.get("/listar-usuarios", getAllUsers);
 
 module.exports = router; // exportamos el router para poder utilizarlo en otros archivos

@@ -91,7 +91,4 @@ const login = (req, res) => {
 // controlador para eliminar un usuario
 
 
-// controlador para obtener lista de usuarios
-
-
 module.exports = {  crearUsuario, login  }; 

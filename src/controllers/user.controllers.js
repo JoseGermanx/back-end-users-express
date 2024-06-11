@@ -33,6 +33,8 @@ try {
     })
   }
 
+  // contraseña y la vamos a encriptar
+
   const usuarioCreado = await User.create({
   name: name,
   lastName: lastName,

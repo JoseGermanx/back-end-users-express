@@ -2,9 +2,24 @@
 
 // controlador para crear una usuario
 
-const crearUsuario = (req, res) => {
-  res.send("Lógica para crear un nuevo usuario desde el controlador"); // función para gestionar la creación de un nuevo usuario -- controlador
+const User = require("../models/user.model");
+
+const crearUsuario = async (req, res) => {
+// va a realizar una consulta a la base de datos para crear un usuario  ---> asincrona
+
+await User.create({
+  name: "Alberto",
+  lastName: "Arias",
+  email: "alberto@arias.com",
+  password: "123123",
+  active: true
+})
+
+res.send("Usuario creado");
+
 };
+
+
 
 // controlador para hacer login de un usuario
 

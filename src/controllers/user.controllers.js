@@ -9,6 +9,8 @@ const crearUsuario = async (req, res) => {
 
 const { name, lastName, email, password } = req.body;
 
+// validar que los campos no estén vacíos
+
 if(!name && !lastName && !email && !password ) {
   return res.status(400).json({
     message: "Todos los campos son obligatorios",
@@ -17,7 +19,31 @@ if(!name && !lastName && !email && !password ) {
   })
 }
 
+// validar contraseña con expresión regular
+
+// const validarPassword = "^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$";
+
+// if(!password.match(validarPassword)) {
+//   return res.status(400).json({
+//     message: "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número",
+//     status: 400,
+//     error: true
+//   })
+// }
+
 try {
+
+  // validación de email único
+  const usuarioExistente = await User.findOne({ email: email})
+
+  if(usuarioExistente) {
+    return res.status(400).json({
+      message: "El email ya está registrado",
+      status: 400,
+      error: true,
+    })
+  }
+
   const usuarioCreado = await User.create({
   name: name,
   lastName: lastName,
@@ -45,9 +71,6 @@ res.status(201).json({
   })
   console.log(error)
 }
-
-
-
 
 };
 

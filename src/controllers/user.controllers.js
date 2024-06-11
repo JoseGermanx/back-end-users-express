@@ -19,17 +19,6 @@ if(!name && !lastName && !email && !password ) {
   })
 }
 
-// validar contraseña con expresión regular
-
-// const validarPassword = "^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$";
-
-// if(password.exec(validarPassword) !== Array ) {
-//   return res.status(400).json({
-//     message: "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número",
-//     status: 400,
-//     error: true
-//   })
-// }
 
 try {
 
@@ -74,21 +63,4 @@ res.status(201).json({
 
 };
 
-
-
-
-
-
-// controlador para hacer login de un usuario
-
-const login = (req, res) => {
-  res.send("Lógica para login de un usuario");
-};
-
-// controlador para actualizar un usuario
-
-
-// controlador para eliminar un usuario
-
-
-module.exports = {  crearUsuario, login  }; 
+module.exports = crearUsuario; 

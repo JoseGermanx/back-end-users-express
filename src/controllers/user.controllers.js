@@ -23,7 +23,7 @@ if(!name && !lastName && !email && !password ) {
 
 // const validarPassword = "^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$";
 
-// if(!password.match(validarPassword)) {
+// if(password.exec(validarPassword) !== Array ) {
 //   return res.status(400).json({
 //     message: "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número",
 //     status: 400,

@@ -14,5 +14,4 @@ app.use(express.urlencoded({ extended: false })); // para que express entienda l
 // definimos las rutas de la aplicación
 app.use("/api/users", router); // definimos la ruta base para las rutas de usuario
 
-
 module.exports = app;

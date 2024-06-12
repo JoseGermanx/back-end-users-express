@@ -4,6 +4,7 @@ const crearUsuario = require("../controllers/user.controllers");
 const getAllUsers = require("../controllers/user.getAll.controller");
 const login = require("../controllers/user.login.controller");
 const actualizarUsuario = require("../controllers/user.actualizar.controller");
+const borrarUsuario = require("../controllers/user.borrar.controller");
 
 const router = express.Router();
 
@@ -18,9 +19,7 @@ router.post("/login", login);
 router.put("/actualizar-usuario/:id", actualizarUsuario);
 
 //ruta par eliminar un usuario --- DELETE
-router.delete("/eliminar-usuario/:id", (req, res) => {
-    res.send("Lógica para eliminar un usuario");
-});
+router.delete("/eliminar-usuario/:id", borrarUsuario);
 
 // ruta para obtener lista de usuarios --- GET
 router.get("/listar-usuarios", getAllUsers);

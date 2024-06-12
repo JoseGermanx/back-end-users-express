@@ -13,7 +13,8 @@ const login = async (req, res) => {
             error: true
         })
     }
-    
+
+
     // buscamos un registro en la base de datos que coincida con el email suministrado
     const usuarioExistente = await User.findOne({ email: email})
 

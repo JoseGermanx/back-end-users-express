@@ -3,6 +3,7 @@ const express = require("express");
 const crearUsuario = require("../controllers/user.controllers");
 const getAllUsers = require("../controllers/user.getAll.controller");
 const login = require("../controllers/user.login.controller");
+const actualizarUsuario = require("../controllers/user.actualizar.controller");
 
 const router = express.Router();
 
@@ -14,9 +15,7 @@ router.post("/crear-usuario", crearUsuario );  // router escucha la petición po
 router.post("/login", login);
 
 // ruta para actualizar un usuario --- PUT
-router.put("/actualizar-usuario/:id", (req, res) => {
-    res.send("Lógica para actualizar un usuario");
-});
+router.put("/actualizar-usuario/:id", actualizarUsuario);
 
 //ruta par eliminar un usuario --- DELETE
 router.delete("/eliminar-usuario/:id", (req, res) => {

@@ -14,7 +14,7 @@ const login = async (req, res) => {
         })
     }
     
-    // buscamos un registro en la base de datos que coincida con el email sumistrado
+    // buscamos un registro en la base de datos que coincida con el email suministrado
     const usuarioExistente = await User.findOne({ email: email})
 
     if(!usuarioExistente) {

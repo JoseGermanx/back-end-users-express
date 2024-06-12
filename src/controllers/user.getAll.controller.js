@@ -6,9 +6,7 @@ const User = require("../models/user.model");
 
 const getAllUsers = async (req, res) => {
 
-    const listaUsuarios = await User.find({
-        name: "Rodrigo"
-    })
+    const listaUsuarios = await User.find({})
 
     res.status(200).json({
         message: "Lista de usuarios",

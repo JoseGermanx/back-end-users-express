@@ -1,6 +1,6 @@
 
-
 // controlador para crear una usuario
+const bycrypt = require("bcrypt");
 
 const User = require("../models/user.model");
 
@@ -34,12 +34,14 @@ try {
   }
 
   // contraseña y la vamos a encriptar
+  const salt = bycrypt.genSaltSync()
+  const passwordEncriptada = bycrypt.hashSync(password, salt)
 
   const usuarioCreado = await User.create({
   name: name,
   lastName: lastName,
   email: email,
-  password: password,
+  password: passwordEncriptada,
   active: true
 })
 

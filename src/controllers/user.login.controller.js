@@ -1,5 +1,5 @@
 // controlador para hacer login de un usuario
-
+const bycrypt = require("bcrypt");
 const User = require("../models/user.model");
 
 const login = async (req, res) => {
@@ -14,6 +14,7 @@ const login = async (req, res) => {
         })
     }
 
+    try {
 
     // buscamos un registro en la base de datos que coincida con el email suministrado
     const usuarioExistente = await User.findOne({ email: email})
@@ -25,8 +26,10 @@ const login = async (req, res) => {
         error: true,
       })
     }
+    //comparación
+    const passwordVerificada = bycrypt.compareSync(password, usuarioExistente.password) /// true o false
 
-    if(usuarioExistente.password !== password) {
+    if(!passwordVerificada) {
     return res.status(400).json({
         message: "Contraseña incorrecta",
         status: 400,
@@ -44,6 +47,16 @@ const login = async (req, res) => {
             email: usuarioExistente.email
         }
     })
+
+} catch (error) {
+    res.status(500).json({
+        message: "Error en el servidor al intentar hacer login",
+        status: 500,
+        error: true,
+        err: error
+    })
+}
+
   };
   
 

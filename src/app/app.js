@@ -2,11 +2,13 @@
 
 const express = require("express");
 const morgan = require("morgan");
+const cors = require("cors");
 const router = require("../routes/user.routes");
 
 const app = express();
 
 //definimos los middlewares propios que a utlizar express
+app.use(cors()); // para que el servidor pueda recibir peticiones de otros servidores
 app.use(morgan("dev")); // para ver las peticiones que se hacen al servidor, viene de la dependencia morgan
 app.use(express.json()); // para que express entienda los datos que vienen en formato json
 app.use(express.urlencoded({ extended: false })); // para que express entienda los datos que vienen en formato urlencoded

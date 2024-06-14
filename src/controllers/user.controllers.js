@@ -11,7 +11,7 @@ const { name, lastName, email, password } = req.body;
 
 // validar que los campos no estén vacíos
 
-if(!name && !lastName && !email && !password ) {
+if(!name || !lastName || !email || !password ) {
   return res.status(400).json({
     message: "Todos los campos son obligatorios",
     status: 400,
